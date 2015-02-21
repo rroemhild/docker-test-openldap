@@ -4,9 +4,11 @@ This image provides an OpenLDAP Server for testing LDAP applications, i.e. unit 
 
 Parts of the image are based on the work from Nick Stenning [docker-slapd][slapd] and Bertrand Gouny [docker-openldap][openldap].
 
+The Flask extension [flask-ldapconn][flaskldapconn] use this image for unit tests.
+
 [slapd]: https://github.com/nickstenning/docker-slapd
 [openldap]: https://github.com/osixia/docker-openldap
-
+[flaskldapconn]: https://github.com/rroemhild/flask-ldapconn
 
 ## Features
 
