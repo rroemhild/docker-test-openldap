@@ -1,6 +1,6 @@
 # OpenLDAP Docker Image for testing
 
-This image provides an OpenLDAP Server for testing LDAP applications, i.e. unit tests. The server is initialized with data from Futurama, Planet Express, Inc. Currently there are only entries for Fry, Lila and Bender. In the future I will add more Crew members and other objects, for more complex tests.
+This image provides an OpenLDAP Server for testing LDAP applications, i.e. unit tests. The server is initialized with the example domain `planetexpress.com` with data from the [Futurama Wiki][futuramawikia]. Currently there are only entries for Fry, Lila and Bender. In the future I will add more Crew members and other objects, for more complex tests.
 
 Parts of the image are based on the work from Nick Stenning [docker-slapd][slapd] and Bertrand Gouny [docker-openldap][openldap].
 
@@ -9,6 +9,7 @@ The Flask extension [flask-ldapconn][flaskldapconn] use this image for unit test
 [slapd]: https://github.com/nickstenning/docker-slapd
 [openldap]: https://github.com/osixia/docker-openldap
 [flaskldapconn]: https://github.com/rroemhild/flask-ldapconn
+[futuramawikia]: http://futurama.wikia.com
 
 ## Features
 

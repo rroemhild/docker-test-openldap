@@ -1,5 +1,5 @@
 dn: ou=people,dc=planetexpress,dc=com
 objectClass: top
 objectClass: organizationalUnit
-description: Springfield citizens
+description: Planet Express crew
 ou: people

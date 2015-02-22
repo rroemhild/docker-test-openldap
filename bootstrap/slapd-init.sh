@@ -1,6 +1,8 @@
 #!/bin/sh
 set -eu
 
+readonly DATA_DIR="/bootstrap/data"
+readonly CONFIG_DIR="/bootstrap/config"
 
 readonly LDAP_BINDDN="cn=admin,dc=planetexpress,dc=com"
 
@@ -30,28 +32,31 @@ slapd slapd/no_configuration boolean false
 slapd slapd/dump_database select when needed
 EOL
 
-    dpkg-reconfigure -f noninteractive slapd
+    dpkg-reconfigure slapd
 }
 
 
 configure_tls() {
     echo "Configure TLS..."
-    ldapmodify -Y EXTERNAL -H ldapi:/// -f /bootstrap/ldif/tls.ldif -Q
+    ldapmodify -Y EXTERNAL -H ldapi:/// -f ${CONFIG_DIR}/tls.ldif -Q
 }
 
 
 configure_logging() {
     echo "Configure logging..."
-    ldapmodify -Y EXTERNAL -H ldapi:/// -f /bootstrap/ldif/logging.ldif -Q
+    ldapmodify -Y EXTERNAL -H ldapi:/// -f ${CONFIG_DIR}/logging.ldif -Q
 }
 
 
 load_initial_data() {
     echo "Load data..."
-    data=$(find /bootstrap/ldif -maxdepth 1 -name \*_\*.ldif -type f | sort)
+    local data=$(find ${DATA_DIR} -maxdepth 1 -name \*_\*.ldif -type f | sort)
     for ldif in ${data}; do
         echo "Processing file ${ldif}..."
-        ldapadd -x -D ${LDAP_BINDDN} -w ${LDAP_ADMIN_SECRET} -H ldapi:/// -f ${ldif}
+        ldapadd -x -H ldapi:/// \
+          -D ${LDAP_BINDDN} \
+          -w ${LDAP_ADMIN_SECRET} \
+          -f ${ldif}
     done
 }
 

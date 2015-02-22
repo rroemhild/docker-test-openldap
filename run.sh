@@ -16,7 +16,7 @@ make_snakeoil_certificate() {
                 -keyout ${LDAP_SSL_KEY} \
                 -out ${LDAP_SSL_CERT}
 
-    chmod 600 /etc/ldap/ssl/ldap.key
+    chmod 600 ${LDAP_SSL_KEY}
 }
 
 
