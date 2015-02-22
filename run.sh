@@ -25,5 +25,8 @@ file_exist ${LDAP_SSL_CERT} \
 
 echo "starting slapd on default port 389..."
 chown -R openldap:openldap /etc/ldap
-exec /usr/sbin/slapd -h "ldap:/// ldapi:///" -u openldap -g openldap -d -1
+exec /usr/sbin/slapd -h "ldap:/// ldapi:///" \
+  -u openldap \
+  -g openldap \
+  -d ${DEBUG_LEVEL}
 

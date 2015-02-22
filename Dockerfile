@@ -1,6 +1,7 @@
 FROM debian:7
 MAINTAINER Rafael Römhild <rafael@roemhild.de>
 
+ENV DEBUG_LEVEL 256
 ENV LDAP_DOMAIN planetexpress.com
 ENV LDAP_ADMIN_SECRET GoodNewsEveryone
 ENV LDAP_ORGANISATION Planet Express, Inc.
