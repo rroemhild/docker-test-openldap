@@ -1,5 +1,5 @@
 #!/bin/sh
-set -x
+set -e
 
 readonly LDAP_SSL_KEY="/etc/ldap/ssl/ldap.key"
 readonly LDAP_SSL_CERT="/etc/ldap/ssl/ldap.crt"
