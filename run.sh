@@ -23,10 +23,9 @@ make_snakeoil_certificate() {
 file_exist ${LDAP_SSL_CERT} \
   || make_snakeoil_certificate
 
-echo "starting slapd on default port 389..."
+echo "starting slapd on port 389 and 636..."
 chown -R openldap:openldap /etc/ldap
-exec /usr/sbin/slapd -h "ldap:/// ldapi:///" \
+exec /usr/sbin/slapd -h "ldap:/// ldapi:/// ldaps:///" \
   -u openldap \
   -g openldap \
   -d ${DEBUG_LEVEL}
-

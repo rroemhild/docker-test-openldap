@@ -31,7 +31,7 @@ RUN /bin/bash /bootstrap/slapd-init.sh
 VOLUME ["/etc/ldap/slapd.d", "/etc/ldap/ssl", "/var/lib/ldap", "/run/slapd"]
 
 EXPOSE 389
+EXPOSE 636
 
 CMD []
 ENTRYPOINT ["/bin/bash", "/run.sh"]
-
