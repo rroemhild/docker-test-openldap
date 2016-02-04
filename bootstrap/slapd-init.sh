@@ -4,23 +4,22 @@ set -eu
 readonly DATA_DIR="/bootstrap/data"
 readonly CONFIG_DIR="/bootstrap/config"
 
+readonly LDAP_DOMAIN=planetexpress.com
+readonly LDAP_ORGANISATION="Planet Express, Inc."
 readonly LDAP_BINDDN="cn=admin,dc=planetexpress,dc=com"
+readonly LDAP_SECRET=GoodNewsEveryone
 
-
-file_exist() {
-    local file=$1
-
-    [[ -e $file ]]
-}
+readonly LDAP_SSL_KEY="/etc/ldap/ssl/ldap.key"
+readonly LDAP_SSL_CERT="/etc/ldap/ssl/ldap.crt"
 
 
 reconfigure_slapd() {
     echo "Reconfigure slapd..."
     cat <<EOL | debconf-set-selections
-slapd slapd/internal/generated_adminpw password ${LDAP_ADMIN_SECRET}
-slapd slapd/internal/adminpw password ${LDAP_ADMIN_SECRET}
-slapd slapd/password2 password ${LDAP_ADMIN_SECRET}
-slapd slapd/password1 password ${LDAP_ADMIN_SECRET}
+slapd slapd/internal/generated_adminpw password ${LDAP_SECRET}
+slapd slapd/internal/adminpw password ${LDAP_SECRET}
+slapd slapd/password2 password ${LDAP_SECRET}
+slapd slapd/password1 password ${LDAP_SECRET}
 slapd slapd/dump_database_destdir string /var/backups/slapd-VERSION
 slapd slapd/domain string ${LDAP_DOMAIN}
 slapd shared/organization string ${LDAP_ORGANISATION}
@@ -32,7 +31,22 @@ slapd slapd/no_configuration boolean false
 slapd slapd/dump_database select when needed
 EOL
 
-    dpkg-reconfigure slapd
+    DEBIAN_FRONTEND=noninteractive dpkg-reconfigure slapd
+}
+
+
+make_snakeoil_certificate() {
+    echo "Make snakeoil certificate for ${LDAP_DOMAIN}..."
+    openssl req -subj "/CN=${LDAP_DOMAIN}" \
+                -new \
+                -newkey rsa:2048 \
+                -days 365 \
+                -nodes \
+                -x509 \
+                -keyout ${LDAP_SSL_KEY} \
+                -out ${LDAP_SSL_CERT}
+
+    chmod 600 ${LDAP_SSL_KEY}
 }
 
 
@@ -55,7 +69,7 @@ load_initial_data() {
         echo "Processing file ${ldif}..."
         ldapadd -x -H ldapi:/// \
           -D ${LDAP_BINDDN} \
-          -w ${LDAP_ADMIN_SECRET} \
+          -w ${LDAP_SECRET} \
           -f ${ldif}
     done
 }
@@ -64,7 +78,7 @@ load_initial_data() {
 ## Init
 
 reconfigure_slapd
-
+make_snakeoil_certificate
 chown -R openldap:openldap /etc/ldap
 slapd -h "ldapi:///" -u openldap -g openldap
 
@@ -75,4 +89,3 @@ load_initial_data
 kill -INT `cat /run/slapd/slapd.pid`
 
 exit 0
-

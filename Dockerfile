@@ -1,20 +1,17 @@
-FROM debian:7
+FROM debian:jessie
 MAINTAINER Rafael Römhild <rafael@roemhild.de>
-
-ENV DEBUG_LEVEL 256
-ENV LDAP_DOMAIN planetexpress.com
-ENV LDAP_ADMIN_SECRET GoodNewsEveryone
-ENV LDAP_ORGANISATION Planet Express, Inc.
-ENV DEBIAN_FRONTEND noninteractive
 
 # Install slapd and requirements
 RUN apt-get update \
-    && apt-get -y --no-install-recommends install \
-        slapd \
-        ldap-utils \
-        openssl \
-        ca-certificates \
+    && DEBIAN_FRONTEND=noninteractive apt-get \
+        install -y --no-install-recommends \
+            slapd \
+            ldap-utils \
+            openssl \
+            ca-certificates \
     && rm -rf /var/lib/apt/lists/*
+
+ENV LDAP_DEBUG_LEVEL=256
 
 # Create TLS certificate and bootstrap directory
 RUN mkdir /etc/ldap/ssl /bootstrap
@@ -33,5 +30,5 @@ VOLUME ["/etc/ldap/slapd.d", "/etc/ldap/ssl", "/var/lib/ldap", "/run/slapd"]
 EXPOSE 389
 EXPOSE 636
 
-CMD []
-ENTRYPOINT ["/bin/bash", "/run.sh"]
+CMD ["/bin/bash", "/run.sh"]
+ENTRYPOINT []
