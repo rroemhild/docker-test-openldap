@@ -61,6 +61,10 @@ configure_logging() {
     ldapmodify -Y EXTERNAL -H ldapi:/// -f ${CONFIG_DIR}/logging.ldif -Q
 }
 
+configure_msad_features(){
+  echo "Configure MS-AD Extensions"
+  ldapmodify -Y EXTERNAL -H ldapi:/// -f ${CONFIG_DIR}/msad.ldif -Q
+}
 
 load_initial_data() {
     echo "Load data..."
@@ -82,6 +86,7 @@ make_snakeoil_certificate
 chown -R openldap:openldap /etc/ldap
 slapd -h "ldapi:///" -u openldap -g openldap
 
+configure_msad_features
 configure_tls
 configure_logging
 load_initial_data

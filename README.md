@@ -154,3 +154,22 @@ docker run --privileged -d -p 389:389 rroemhild/test-openldap
 | ou               | Delivering Crew |
 | uid              | bender |
 | userPassword     | bender |
+
+### cn=admin_staff,ou=people,dc=planetexpress,dc=com
+
+| Attribute        | Value            |
+| ---------------- | ---------------- |
+| objectClass      | Group |
+| cn               | admin_staff |
+| member           | cn=Hubert J. Farnsworth,ou=people,dc=planetexpress,dc=com |
+| member           | cn=Hermes Conrad,ou=people,dc=planetexpress,dc=com |
+
+### cn=ship_crew,ou=people,dc=planetexpress,dc=com
+
+| Attribute        | Value            |
+| ---------------- | ---------------- |
+| objectClass      | Group |
+| cn               | ship_crew |
+| member           | cn=Turanga Leela,ou=people,dc=planetexpress,dc=com |
+| member           | cn=Philip J. Fry,ou=people,dc=planetexpress,dc=com |
+| member           | cn=Bender Bending Rodríguez,ou=people,dc=planetexpress,dc=com |
