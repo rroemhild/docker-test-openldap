@@ -1,7 +1,7 @@
 version: 1
 
 # Add the groupType Attribute
-dn: cn=schema,cn=config
+dn: cn={0}core,cn=schema,cn=config
 changetype: modify
 add: olcAttributetypes
 olcAttributetypes: ( 1.2.840.113556.1.4.750 NAME 'groupType'
@@ -9,7 +9,7 @@ olcAttributetypes: ( 1.2.840.113556.1.4.750 NAME 'groupType'
  )
 
 # Add the group class
-dn: cn=schema,cn=config
+dn: cn={0}core,cn=schema,cn=config
 changetype: modify
 add: olcObjectClasses
 olcObjectClasses: ( 1.2.840.113556.1.5.8 NAME 'Group'
