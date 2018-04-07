@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM debian:stretch-slim
 MAINTAINER Rafael Römhild <rafael@roemhild.de>
 
 # Install slapd and requirements
