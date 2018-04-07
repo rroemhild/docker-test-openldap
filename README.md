@@ -18,7 +18,7 @@ The Flask extension [flask-ldapconn][flaskldapconn] use this image for unit test
 
 * Support for TLS (snake oil cert on build)
 * Initialized with data from Futurama
-* ~180MB Images size
+* ~124MB images size (~40MB compressed)
 
 
 ## Usage

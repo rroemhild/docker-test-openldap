@@ -9,12 +9,10 @@ RUN apt-get update \
             ldap-utils \
             openssl \
             ca-certificates \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && mkdir /etc/ldap/ssl /bootstrap
 
 ENV LDAP_DEBUG_LEVEL=256
-
-# Create TLS certificate and bootstrap directory
-RUN mkdir /etc/ldap/ssl /bootstrap
 
 # ADD run script
 COPY ./run.sh /run.sh
@@ -27,8 +25,7 @@ RUN /bin/bash /bootstrap/slapd-init.sh
 
 VOLUME ["/etc/ldap/slapd.d", "/etc/ldap/ssl", "/var/lib/ldap", "/run/slapd"]
 
-EXPOSE 389
-EXPOSE 636
+EXPOSE 389 636
 
 CMD ["/bin/bash", "/run.sh"]
 ENTRYPOINT []
