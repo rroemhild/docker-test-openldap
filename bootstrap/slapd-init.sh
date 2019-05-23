@@ -66,6 +66,11 @@ configure_msad_features(){
   ldapmodify -Y EXTERNAL -H ldapi:/// -f ${CONFIG_DIR}/msad.ldif -Q
 }
 
+configure_memberof_overlay(){
+  echo "Configure memberOf overlay..."
+  ldapmodify -Y EXTERNAL -H ldapi:/// -f ${CONFIG_DIR}/memberof.ldif -Q
+}
+
 load_initial_data() {
     echo "Load data..."
     local data=$(find ${DATA_DIR} -maxdepth 1 -name \*_\*.ldif -type f | sort)
@@ -89,6 +94,7 @@ slapd -h "ldapi:///" -u openldap -g openldap
 configure_msad_features
 configure_tls
 configure_logging
+configure_memberof_overlay
 load_initial_data
 
 kill -INT `cat /run/slapd/slapd.pid`
