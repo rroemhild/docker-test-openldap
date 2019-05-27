@@ -16,8 +16,10 @@ The Flask extension [flask-ldapconn][flaskldapconn] use this image for unit test
 
 ## Features
 
-* Support for TLS (snake oil cert on build)
 * Initialized with data from Futurama
+* Support for TLS (snake oil cert on build)
+* memberOf overlay support
+* MS-AD Style Groups support
 * ~124MB images size (~40MB compressed)
 
 
@@ -156,6 +158,22 @@ docker run --privileged -d -p 389:389 rroemhild/test-openldap
 | ou               | Delivering Crew |
 | uid              | bender |
 | userPassword     | bender |
+
+### cn=Amy Wong+sn=Kroker,ou=people,dc=planetexpress,dc=com
+
+Amy has a multi-valued DN
+
+| Attribute        | Value            |
+| ---------------- | ---------------- |
+| objectClass      | inetOrgPerson |
+| cn               | Amy Wong |
+| sn               | Kroker |
+| description      | Human |
+| givenName        | Amy |
+| mail             | amy@planetexpress.com |
+| ou               | Intern |
+| uid              | amy |
+| userPassword     | amy |
 
 ### cn=admin_staff,ou=people,dc=planetexpress,dc=com
 
