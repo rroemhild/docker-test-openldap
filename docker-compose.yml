@@ -1,0 +1,20 @@
+version: '2'
+
+services:
+    ldap:
+        container_name: ldap
+        # use the image tag to pull directly from the repo
+        # image: rroemhild/test-openldap
+        
+        # use build tag to use the local repo
+        build:
+            context: ./
+            dockerfile: ./Dockerfile
+        ports:
+            - '389:389'
+            - '636:636'
+        volumes:
+            - data_volume:/var/lib/ldap/
+
+volumes:
+    data_volume:
