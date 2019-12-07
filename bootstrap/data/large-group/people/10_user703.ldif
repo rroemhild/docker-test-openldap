@@ -1,0 +1,12 @@
+dn: cn=large703,ou=large_ou,dc=planetexpress,dc=com
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+cn: Large User703
+sn: User703
+description: Human
+givenName: Large
+mail: large703@planetexpress.com
+uid: user703
+userPassword:: e1NTSEF9TVVobE45STRwQm9CcW1SWjBxL1F1MUlBK1JQSDljNkcK

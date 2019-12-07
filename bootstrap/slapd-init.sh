@@ -81,6 +81,15 @@ load_initial_data() {
           -w ${LDAP_SECRET} \
           -f ${ldif}
     done
+
+    local data=$(find ${DATA_DIR}/large-group -maxdepth 2 -name \*_\*.ldif -type f | sort)
+    for ldif in ${data}; do
+      echo "Processing file ${ldif}..."
+      ldapadd -x -H ldapi:/// \
+        -D ${LDAP_BINDDN} \
+        -w ${LDAP_SECRET} \
+        -f ${ldif}
+    done
 }
 
 

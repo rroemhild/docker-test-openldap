@@ -1,0 +1,12 @@
+dn: cn=large505,ou=large_ou,dc=planetexpress,dc=com
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+cn: Large User505
+sn: User505
+description: Human
+givenName: Large
+mail: large505@planetexpress.com
+uid: user505
+userPassword:: e1NTSEF9TVVobE45STRwQm9CcW1SWjBxL1F1MUlBK1JQSDljNkcK

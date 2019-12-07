@@ -1,0 +1,12 @@
+dn: cn=large39,ou=large_ou,dc=planetexpress,dc=com
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+cn: Large User39
+sn: User39
+description: Human
+givenName: Large
+mail: large39@planetexpress.com
+uid: user39
+userPassword:: e1NTSEF9TVVobE45STRwQm9CcW1SWjBxL1F1MUlBK1JQSDljNkcK

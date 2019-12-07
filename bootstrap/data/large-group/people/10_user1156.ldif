@@ -1,0 +1,12 @@
+dn: cn=large1156,ou=large_ou,dc=planetexpress,dc=com
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+cn: Large User1156
+sn: User1156
+description: Human
+givenName: Large
+mail: large1156@planetexpress.com
+uid: user1156
+userPassword:: e1NTSEF9TVVobE45STRwQm9CcW1SWjBxL1F1MUlBK1JQSDljNkcK

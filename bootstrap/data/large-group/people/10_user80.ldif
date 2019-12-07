@@ -1,0 +1,12 @@
+dn: cn=large80,ou=large_ou,dc=planetexpress,dc=com
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+cn: Large User80
+sn: User80
+description: Human
+givenName: Large
+mail: large80@planetexpress.com
+uid: user80
+userPassword:: e1NTSEF9TVVobE45STRwQm9CcW1SWjBxL1F1MUlBK1JQSDljNkcK

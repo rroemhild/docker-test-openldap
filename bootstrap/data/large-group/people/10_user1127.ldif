@@ -1,0 +1,12 @@
+dn: cn=large1127,ou=large_ou,dc=planetexpress,dc=com
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+cn: Large User1127
+sn: User1127
+description: Human
+givenName: Large
+mail: large1127@planetexpress.com
+uid: user1127
+userPassword:: e1NTSEF9TVVobE45STRwQm9CcW1SWjBxL1F1MUlBK1JQSDljNkcK

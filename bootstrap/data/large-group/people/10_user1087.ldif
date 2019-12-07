@@ -1,0 +1,12 @@
+dn: cn=large1087,ou=large_ou,dc=planetexpress,dc=com
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+cn: Large User1087
+sn: User1087
+description: Human
+givenName: Large
+mail: large1087@planetexpress.com
+uid: user1087
+userPassword:: e1NTSEF9TVVobE45STRwQm9CcW1SWjBxL1F1MUlBK1JQSDljNkcK

@@ -1,0 +1,12 @@
+dn: cn=large826,ou=large_ou,dc=planetexpress,dc=com
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+cn: Large User826
+sn: User826
+description: Human
+givenName: Large
+mail: large826@planetexpress.com
+uid: user826
+userPassword:: e1NTSEF9TVVobE45STRwQm9CcW1SWjBxL1F1MUlBK1JQSDljNkcK

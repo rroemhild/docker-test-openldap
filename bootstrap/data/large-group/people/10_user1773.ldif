@@ -1,0 +1,12 @@
+dn: cn=large1773,ou=large_ou,dc=planetexpress,dc=com
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+cn: Large User1773
+sn: User1773
+description: Human
+givenName: Large
+mail: large1773@planetexpress.com
+uid: user1773
+userPassword:: e1NTSEF9TVVobE45STRwQm9CcW1SWjBxL1F1MUlBK1JQSDljNkcK

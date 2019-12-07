@@ -1,0 +1,12 @@
+dn: cn=large976,ou=large_ou,dc=planetexpress,dc=com
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+cn: Large User976
+sn: User976
+description: Human
+givenName: Large
+mail: large976@planetexpress.com
+uid: user976
+userPassword:: e1NTSEF9TVVobE45STRwQm9CcW1SWjBxL1F1MUlBK1JQSDljNkcK

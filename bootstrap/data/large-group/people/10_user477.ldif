@@ -1,0 +1,12 @@
+dn: cn=large477,ou=large_ou,dc=planetexpress,dc=com
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+cn: Large User477
+sn: User477
+description: Human
+givenName: Large
+mail: large477@planetexpress.com
+uid: user477
+userPassword:: e1NTSEF9TVVobE45STRwQm9CcW1SWjBxL1F1MUlBK1JQSDljNkcK

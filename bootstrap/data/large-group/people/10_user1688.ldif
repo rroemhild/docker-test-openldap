@@ -1,0 +1,12 @@
+dn: cn=large1688,ou=large_ou,dc=planetexpress,dc=com
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+cn: Large User1688
+sn: User1688
+description: Human
+givenName: Large
+mail: large1688@planetexpress.com
+uid: user1688
+userPassword:: e1NTSEF9TVVobE45STRwQm9CcW1SWjBxL1F1MUlBK1JQSDljNkcK

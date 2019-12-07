@@ -1,0 +1,12 @@
+dn: cn=large1032,ou=large_ou,dc=planetexpress,dc=com
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+cn: Large User1032
+sn: User1032
+description: Human
+givenName: Large
+mail: large1032@planetexpress.com
+uid: user1032
+userPassword:: e1NTSEF9TVVobE45STRwQm9CcW1SWjBxL1F1MUlBK1JQSDljNkcK

@@ -1,0 +1,12 @@
+dn: cn=large1351,ou=large_ou,dc=planetexpress,dc=com
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+cn: Large User1351
+sn: User1351
+description: Human
+givenName: Large
+mail: large1351@planetexpress.com
+uid: user1351
+userPassword:: e1NTSEF9TVVobE45STRwQm9CcW1SWjBxL1F1MUlBK1JQSDljNkcK

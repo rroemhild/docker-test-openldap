@@ -1,0 +1,12 @@
+dn: cn=large194,ou=large_ou,dc=planetexpress,dc=com
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+cn: Large User194
+sn: User194
+description: Human
+givenName: Large
+mail: large194@planetexpress.com
+uid: user194
+userPassword:: e1NTSEF9TVVobE45STRwQm9CcW1SWjBxL1F1MUlBK1JQSDljNkcK

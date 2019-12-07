@@ -1,0 +1,12 @@
+dn: cn=large734,ou=large_ou,dc=planetexpress,dc=com
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+cn: Large User734
+sn: User734
+description: Human
+givenName: Large
+mail: large734@planetexpress.com
+uid: user734
+userPassword:: e1NTSEF9TVVobE45STRwQm9CcW1SWjBxL1F1MUlBK1JQSDljNkcK

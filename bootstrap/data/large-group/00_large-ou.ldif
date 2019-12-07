@@ -1,0 +1,5 @@
+dn: ou=large_ou,dc=planetexpress,dc=com
+objectClass: top
+objectClass: organizationalUnit
+description: Just a lot of accounts
+ou: large-ou

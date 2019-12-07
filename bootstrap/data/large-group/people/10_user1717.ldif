@@ -1,0 +1,12 @@
+dn: cn=large1717,ou=large_ou,dc=planetexpress,dc=com
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+cn: Large User1717
+sn: User1717
+description: Human
+givenName: Large
+mail: large1717@planetexpress.com
+uid: user1717
+userPassword:: e1NTSEF9TVVobE45STRwQm9CcW1SWjBxL1F1MUlBK1JQSDljNkcK

@@ -1,0 +1,12 @@
+dn: cn=large602,ou=large_ou,dc=planetexpress,dc=com
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+cn: Large User602
+sn: User602
+description: Human
+givenName: Large
+mail: large602@planetexpress.com
+uid: user602
+userPassword:: e1NTSEF9TVVobE45STRwQm9CcW1SWjBxL1F1MUlBK1JQSDljNkcK
