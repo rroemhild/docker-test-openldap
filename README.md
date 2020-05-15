@@ -193,3 +193,27 @@ Amy has a multi-valued DN
 | member           | cn=Turanga Leela,ou=people,dc=planetexpress,dc=com |
 | member           | cn=Philip J. Fry,ou=people,dc=planetexpress,dc=com |
 | member           | cn=Bender Bending Rodríguez,ou=people,dc=planetexpress,dc=com |
+
+
+## JAAS configuration
+
+In case you want to use this OpenLDAP server for testing with a Java-based
+application using JAAS and the `LdapLoginModule`, here's a working configuration
+file you can use to connect.
+
+```
+other {
+  com.sun.security.auth.module.LdapLoginModule REQUIRED
+    userProvider="ldap://localhost/ou=people,dc=planetexpress,dc=com"
+    userFilter="(&(uid={USERNAME})(objectClass=inetOrgPerson))"
+    useSSL=false
+    java.naming.security.principal="cn=admin,dc=planetexpress,dc=com"
+    java.naming.security.credentials="GoodNewsEveryone"
+    debug=true
+    ;
+};
+```
+
+This config uses the admin credentials to connect to the OpenLDAP server and to
+submit the search query for the user that enters their credentials. As username
+the `uid` attribute of each entry is used.
