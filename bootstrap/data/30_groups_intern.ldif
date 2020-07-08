@@ -1,0 +1,6 @@
+dn: cn=intern,ou=people,dc=planetexpress,dc=com
+objectclass: Group
+objectclass: top
+groupType: 2147483650
+cn: intern
+member: cn=Amy Wong+sn=Kroker,ou=people,dc=planetexpress,dc=com

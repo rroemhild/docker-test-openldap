@@ -1,0 +1,13 @@
+dn: cn=ship,ou=people,dc=planetexpress,dc=com
+objectclass: Group
+objectclass: top
+groupType: 2147483650
+cn: ship
+member: cn=admin,dc=planetexpress,dc=com
+member: cn=Hubert J. Farnsworth,ou=people,dc=planetexpress,dc=com
+member: cn=Philip J. Fry,ou=people,dc=planetexpress,dc=com
+member: cn=John A. Zoidberg,ou=people,dc=planetexpress,dc=com
+member: cn=Hermes Conrad,ou=people,dc=planetexpress,dc=com
+member: cn=Turanga Leela,ou=people,dc=planetexpress,dc=com
+member: cn=Bender Bending Rodríguez,ou=people,dc=planetexpress,dc=com
+member: cn=Amy Wong+sn=Kroker,ou=people,dc=planetexpress,dc=com

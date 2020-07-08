@@ -1,0 +1,6 @@
+dn: cn=dir_mgr,ou=people,dc=planetexpress,dc=com
+objectclass: Group
+objectclass: top
+groupType: 2147483650
+cn: dir_mgr
+member: cn=admin,dc=planetexpress,dc=com
