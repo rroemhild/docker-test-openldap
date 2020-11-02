@@ -27,7 +27,7 @@ The Flask extension [flask-ldapconn][flaskldapconn] use this image for unit test
 
 ```
 docker pull rroemhild/test-openldap
-docker run --privileged -d -p 389:389 rroemhild/test-openldap
+docker run --privileged -d -p 389:389 -p 636:636 rroemhild/test-openldap
 ```
 
 ## Exposed ports
