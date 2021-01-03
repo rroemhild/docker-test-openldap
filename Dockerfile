@@ -1,21 +1,18 @@
-FROM debian:stretch-slim
+FROM debian:buster-slim
 MAINTAINER Rafael Römhild <rafael@roemhild.de>
 
 # Install slapd and requirements
 RUN apt-get update \
+	&& apt-get dist-upgrade -y \
     && DEBIAN_FRONTEND=noninteractive apt-get \
         install -y --no-install-recommends \
             slapd \
             ldap-utils \
             openssl \
             ca-certificates \
+            tini \
     && rm -rf /var/lib/apt/lists/* \
     && mkdir /etc/ldap/ssl /bootstrap
-
-ENV LDAP_DEBUG_LEVEL=256
-
-# ADD run script
-COPY ./run.sh /run.sh
 
 # ADD bootstrap files
 ADD ./bootstrap /bootstrap
@@ -25,7 +22,9 @@ RUN /bin/bash /bootstrap/slapd-init.sh
 
 VOLUME ["/etc/ldap/slapd.d", "/etc/ldap/ssl", "/var/lib/ldap", "/run/slapd"]
 
-EXPOSE 389 636
+EXPOSE 10389 10636
 
-CMD ["/bin/bash", "/run.sh"]
-ENTRYPOINT []
+USER openldap
+
+ENTRYPOINT ["/usr/bin/tini", "--", "/usr/sbin/slapd"]
+CMD ["-h", "ldapi:/// ldap://127.0.0.1:10389 ldaps://127.0.0.1:10636", "-d", "256"]

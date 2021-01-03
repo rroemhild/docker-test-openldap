@@ -19,21 +19,20 @@ The Flask extension [flask-ldapconn][flaskldapconn] use this image for unit test
 * Initialized with data from Futurama
 * Support for TLS (snake oil cert on build)
 * memberOf overlay support
-* MS-AD Style Groups support
-* ~124MB images size (~40MB compressed)
+* MS-AD style groups support
 
 
 ## Usage
 
 ```
 docker pull rroemhild/test-openldap
-docker run --privileged -d -p 389:389 -p 636:636 rroemhild/test-openldap
+docker run --rm -d -p 10389:10389 -p 10636:10636 rroemhild/test-openldap
 ```
 
 ## Exposed ports
 
-* 389
-* 636
+* 10389 (ldap)
+* 10636 (ldaps)
 
 ## Exposed volumes
 
