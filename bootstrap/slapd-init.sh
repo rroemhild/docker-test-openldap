@@ -105,6 +105,7 @@ configure_memberof_overlay
 configure_admin_config_pw
 load_initial_data
 
-kill -INT `cat /run/slapd/slapd.pid`
+# Shutdown openldap daemon
+kill -INT `cat /run/slapd/slapd.pid` && sleep 1
 
 exit 0
