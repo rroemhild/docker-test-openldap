@@ -1,5 +1,5 @@
 #!/bin/sh
-set -eu
+set -eux
 
 readonly DATA_DIR="/bootstrap/data"
 readonly CONFIG_DIR="/bootstrap/config"
@@ -51,14 +51,14 @@ make_snakeoil_certificate() {
 
 
 configure_tls() {
-  echo "Configure TLS..."
-  ldapmodify -Y EXTERNAL -H ldapi:/// -f ${CONFIG_DIR}/tls.ldif -Q
+    echo "Configure TLS..."
+    ldapmodify -Y EXTERNAL -H ldapi:/// -f ${CONFIG_DIR}/tls.ldif -Q
 }
 
 
 configure_logging() {
-  echo "Configure logging..."
-  ldapmodify -Y EXTERNAL -H ldapi:/// -f ${CONFIG_DIR}/logging.ldif -Q
+    echo "Configure logging..."
+    ldapmodify -Y EXTERNAL -H ldapi:/// -f ${CONFIG_DIR}/logging.ldif -Q
 }
 
 configure_msad_features(){
@@ -69,13 +69,6 @@ configure_msad_features(){
 configure_memberof_overlay(){
   echo "Configure memberOf overlay..."
   ldapmodify -Y EXTERNAL -H ldapi:/// -f ${CONFIG_DIR}/memberof.ldif -Q
-}
-
-configure_admin_config_pw(){
-  echo "Configure admin config password..."
-  adminpw=$(slappasswd -h {SSHA} -s "${LDAP_SECRET}")
-  sed -i s/{ADMINPW}/${adminpw}/g ${CONFIG_DIR}/configadminpw.ldif
-  ldapmodify -Y EXTERNAL -H ldapi:/// -f ${CONFIG_DIR}/configadminpw.ldif -Q
 }
 
 load_initial_data() {
@@ -102,7 +95,6 @@ configure_msad_features
 configure_tls
 configure_logging
 configure_memberof_overlay
-configure_admin_config_pw
 load_initial_data
 
 # Shutdown openldap daemon
