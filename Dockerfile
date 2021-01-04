@@ -27,4 +27,4 @@ EXPOSE 389 636
 USER openldap
 
 ENTRYPOINT ["/usr/bin/tini", "--", "/usr/sbin/slapd"]
-CMD ["-h", "ldapi:/// ldap://127.0.0.1:389 ldaps://127.0.0.1:636", "-d", "256"]
+CMD ["-h", "ldapi:/// ldap://0.0.0.0:389 ldaps://0.0.0.0:636", "-d", "256"]
