@@ -22,9 +22,9 @@ RUN /bin/bash /bootstrap/slapd-init.sh
 
 VOLUME ["/etc/ldap/slapd.d", "/etc/ldap/ssl", "/var/lib/ldap", "/run/slapd"]
 
-EXPOSE 10389 10636
+EXPOSE 389 636
 
 USER openldap
 
 ENTRYPOINT ["/usr/bin/tini", "--", "/usr/sbin/slapd"]
-CMD ["-h", "ldapi:/// ldap://0.0.0.0:10389 ldaps://0.0.0.0:10636", "-d", "256"]
+CMD ["-h", "ldapi:/// ldap://0.0.0.0:389 ldaps://0.0.0.0:636", "-d", "256"]
