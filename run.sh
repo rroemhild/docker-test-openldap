@@ -2,7 +2,7 @@
 set -e
 
 echo "starting slapd on port 389 and 636..."
-chown -R openldap:openldap /etc/ldap
+chown -R openldap:openldap /etc/ldap /var/lib/ldap
 exec /usr/sbin/slapd -h "ldap:/// ldapi:/// ldaps:///" \
   -u openldap \
   -g openldap \
