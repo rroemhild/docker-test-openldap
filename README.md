@@ -1,8 +1,8 @@
 # OpenLDAP Docker Image for testing
 
-![Docker Build Status](https://img.shields.io/docker/cloud/build/rroemhild/test-openldap) ![Docker Stars](https://img.shields.io/docker/stars/rroemhild/test-openldap.svg) ![Docker Pulls](https://img.shields.io/docker/pulls/rroemhild/test-openldap.svg)
+![Docker Build Status](https://img.shields.io/docker/cloud/build/rroemhild/test-openldap) [![Docker Stars](https://img.shields.io/docker/stars/rroemhild/test-openldap.svg)](https://hub.docker.com/r/rroemhild/test-openldap) [![Docker Pulls](https://img.shields.io/docker/pulls/rroemhild/test-openldap.svg)](https://hub.docker.com/r/rroemhild/test-openldap)
 
-This image provides an OpenLDAP Server for testing LDAP applications, i.e. unit tests. The server is initialized with the example domain `planetexpress.com` with data from the [Futurama Wiki][futuramawikia].
+[This image](https://hub.docker.com/r/rroemhild/test-openldap) provides an OpenLDAP Server for testing LDAP applications, i.e. unit tests. The server is initialized with the example domain `planetexpress.com` with data from the [Futurama Wiki][futuramawikia].
 
 Parts of the image are based on the work from Nick Stenning [docker-slapd][slapd] and Bertrand Gouny [docker-openldap][openldap].
 
