@@ -1,4 +1,4 @@
-dn: cn=admin_staff,ou=people,dc=planetexpress,dc=com
+dn: cn=admin_staff,ou=groups,dc=planetexpress,dc=com
 objectclass: Group
 objectclass: top
 groupType: 2147483650
