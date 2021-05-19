@@ -1,5 +1,5 @@
-dn: ou=groups,dc=planetexpress,dc=com
+dn: ou=groupss,dc=planetexpress,dc=com
 objectClass: top
 objectClass: organizationalUnit
-description: Planet Express groupsss hallo
-ou: groups
+description: Planet Express groupsss hallo11_a
+ou: groupss

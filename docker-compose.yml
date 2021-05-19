@@ -1,8 +1,8 @@
 version: '2'
 
 services:
-    ldap:
-        container_name: ldap
+    ldap11:
+        container_name: ldap11
         # use the image tag to pull directly from the repo
         # image: rroemhild/test-openldap
 
