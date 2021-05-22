@@ -1,4 +1,4 @@
-dn: cn=ship_crew,ou=groupss,dc=planetexpress,dc=com
+dn: cn=ship_crew,ou=groups,dc=planetexpress,dc=com
 objectclass: groupOfNames
 objectclass: top
 cn: ship_crew

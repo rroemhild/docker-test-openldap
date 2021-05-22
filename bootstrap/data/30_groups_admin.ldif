@@ -1,4 +1,4 @@
-dn: cn=admin_staff,ou=groupss,dc=planetexpress,dc=com
+dn: cn=admin_staff,ou=groups,dc=planetexpress,dc=com
 objectclass: groupOfNames
 objectclass: top
 cn: admin_staff
