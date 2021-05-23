@@ -70,7 +70,7 @@ configure_admin_config_pw(){
   echo "Configure admin config password..."
   adminpw=$(slappasswd -h {SSHA} -s "${LDAP_SECRET}")
   adminpw=$(printf '%s\n' "$adminpw" | sed -e 's/[\/&]/\\&/g')
-  sed -i s/ADMINPW/${adminpw}/g ${CONFIG_DIR}/configadminpw.ldif
+  sed -i 's+ADMINPW+${adminpw}+g' ${CONFIG_DIR}/configadminpw.ldif
   ldapmodify -Y EXTERNAL -H ldapi:/// -f ${CONFIG_DIR}/configadminpw.ldif -Q
 }
 

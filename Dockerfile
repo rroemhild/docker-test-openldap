@@ -1,4 +1,4 @@
-FROM debian:buster-slim
+FROM debian
 MAINTAINER Rafael Römhild <rafael@roemhild.de>
 
 # Install slapd and requirements
@@ -19,8 +19,6 @@ ADD ./bootstrap /bootstrap
 
 # Initialize LDAP with data
 RUN /bin/bash /bootstrap/slapd-init.sh
-
-VOLUME ["/etc/ldap/slapd.d", "/etc/ldap/ssl", "/var/lib/ldap", "/run/slapd"]
 
 EXPOSE 389 636
 

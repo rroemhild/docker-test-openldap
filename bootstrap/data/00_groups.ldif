@@ -1,0 +1,5 @@
+dn: ou=groups,dc=planetexpress,dc=com
+objectClass: top
+objectClass: organizationalUnit
+description: Planet Express groups
+ou: groups

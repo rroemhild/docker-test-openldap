@@ -12,7 +12,7 @@ objectClass: olcMemberOf
 olcOverlay: {0}memberof
 olcMemberOfDangling: ignore
 olcMemberOfRefInt: TRUE
-olcMemberOfGroupOC: Group
+olcMemberOfGroupOC: groupOfNames
 olcMemberOfMemberAD: member
 olcMemberOfMemberOfAD: memberOf
 

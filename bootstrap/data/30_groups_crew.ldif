@@ -1,7 +1,6 @@
-dn: cn=ship_crew,ou=people,dc=planetexpress,dc=com
-objectclass: Group
+dn: cn=ship_crew,ou=groups,dc=planetexpress,dc=com
+objectclass: groupOfNames
 objectclass: top
-groupType: 2147483650
 cn: ship_crew
 member: cn=Philip J. Fry,ou=people,dc=planetexpress,dc=com
 member: cn=Turanga Leela,ou=people,dc=planetexpress,dc=com
