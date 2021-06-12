@@ -37,4 +37,4 @@ EXPOSE 10389 10636
 
 CMD ["/init"]
 
-HEALTHCHECK CMD ldapsearch -H ldap://127.0.0.1:10389 -D cn=admin,dc=planetexpress,dc=com -w GoodNewsEveryone -b cn=admin,dc=planetexpress,dc=com
+HEALTHCHECK CMD ["ldapsearch", "-H", "ldap://127.0.0.1:10389", "-D", "${LDAP_BINDDN}", "-w", "${LDAP_SECRET}", "-b", "${LDAP_BINDDN}"]

@@ -7,7 +7,10 @@ services:
         # image: rroemhild/test-openldap
         environment:
             LDAP_FORCE_STARTTLS: "true"
-
+            LDAP_DOMAIN: "customdomain.com"
+            LDAP_BASEDN: "dc=customdomain,dc=com"
+            LDAP_ORGANISATION: "Custom Domain, Inc."
+            LDAP_BINDDN: "cn=admin,dc=customdomain,dc=com"
         # use build tag to use the local repo
         build:
             context: ./
