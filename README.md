@@ -29,6 +29,24 @@ docker pull rroemhild/test-openldap
 docker run --rm -p 10389:10389 -p 10636:10636 rroemhild/test-openldap
 ```
 
+## Testing
+
+```
+# List all Users
+ldapsearch -H ldap://localhost:10389 -x -b "ou=people,dc=planetexpress,dc=com" -D "cn=admin,dc=planetexpress,dc=com" -w GoodNewsEveryone "(objectClass=inetOrgPerson)"
+
+# Request StartTLS
+ldapsearch -H ldap://localhost:10389 -Z -x -b "ou=people,dc=planetexpress,dc=com" -D "cn=admin,dc=planetexpress,dc=com" -w GoodNewsEveryone "(objectClass=inetOrgPerson)"
+
+# Enforce StartTLS
+ldapsearch -H ldap://localhost:10389 -ZZ -x -b "ou=people,dc=planetexpress,dc=com" -D "cn=admin,dc=planetexpress,dc=com" -w GoodNewsEveryone "(objectClass=inetOrgPerson)"
+
+# Enforce StartTLS with self-signed cert
+LDAPTLS_REQCERT=never ldapsearch -H ldap://localhost:10389 -ZZ -x -b "ou=people,dc=planetexpress,dc=com" -D "cn=admin,dc=planetexpress,dc=com" -w GoodNewsEveryone "(objectClass=inetOrgPerson)"
+
+
+```
+
 ## Exposed ports
 
 * 10389 (ldap)
