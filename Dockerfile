@@ -8,6 +8,7 @@ ENV LDAP_DOMAIN=planetexpress.com
 ENV LDAP_ORGANISATION="Planet Express, Inc."
 ENV LDAP_BINDDN="cn=admin,dc=planetexpress,dc=com"
 ENV LDAP_SECRET=GoodNewsEveryone
+ENV LDAP_CA_CERT="/etc/ldap/ssl/fullchain.crt"
 ENV LDAP_SSL_KEY="/etc/ldap/ssl/ldap.key"
 ENV LDAP_SSL_CERT="/etc/ldap/ssl/ldap.crt"
 ENV LDAP_FORCE_STARTTLS="false"
