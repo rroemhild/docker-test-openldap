@@ -1,0 +1,4 @@
+#!/usr/bin/with-contenv bash
+
+echo "starting slapd"
+/usr/sbin/slapd -h "ldapi:/// ldap://0.0.0.0:10389 ldaps://0.0.0.0:10636" -d 256

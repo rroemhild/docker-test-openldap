@@ -1,0 +1,76 @@
+#!/usr/bin/with-contenv bash
+set -eux
+
+configure_tls() {
+    echo "Configure TLS..."
+    ldapmodify -Y EXTERNAL -H ldapi:/// -f ${CONFIG_DIR}/tls.ldif -Q
+}
+
+
+configure_logging() {
+    echo "Configure logging..."
+    ldapmodify -Y EXTERNAL -H ldapi:/// -f ${CONFIG_DIR}/logging.ldif -Q
+}
+
+configure_msad_features(){
+  echo "Configure MS-AD Extensions"
+  ldapmodify -Y EXTERNAL -H ldapi:/// -f ${CONFIG_DIR}/msad.ldif -Q
+}
+
+configure_admin_config_pw(){
+  echo "Configure admin config password..."
+  adminpw=$(slappasswd -h {SSHA} -s "${LDAP_SECRET}")
+  adminpw=$(printf '%s\n' "$adminpw" | sed -e 's/[\/&]/\\&/g')
+  sed -i s/ADMINPW/${adminpw}/g ${CONFIG_DIR}/configadminpw.ldif
+  ldapmodify -Y EXTERNAL -H ldapi:/// -f ${CONFIG_DIR}/configadminpw.ldif -Q
+}
+
+configure_memberof_overlay(){
+  echo "Configure memberOf overlay..."
+  ldapmodify -Y EXTERNAL -H ldapi:/// -f ${CONFIG_DIR}/memberof.ldif -Q
+}
+
+force_starttls(){
+  echo "Force StartTLS..."
+  ldapmodify -Y EXTERNAL -H ldapi:/// -f ${CONFIG_DIR}/force-starttls.ldif -Q
+}
+
+load_initial_data() {
+    echo "Load data..."
+    local data=$(find ${DATA_DIR} -maxdepth 1 -name \*_\*.ldif -type f | sort)
+    for ldif in ${data}; do
+        echo "Processing file ${ldif}..."
+        if  [ ! -z "$LDAP_BASEDN" ]; then
+            echo "updating base dn dc=planetexpress,dc=com -> ${LDAP_BASEDN}"
+            sed -i "s/dc=planetexpress,dc=com/${LDAP_BASEDN}/g" "${ldif}"
+        fi
+        if  [  "$LDAP_DOMAIN" != "planetexpress.com" ]; then
+            echo "updating emails @planetexpress.com -> @${LDAP_DOMAIN}"
+            sed -i "s/@planetexpress.com/@${LDAP_DOMAIN}/g" "${ldif}"
+        fi
+
+        ldapadd -x -H ldapi:/// \
+          -D ${LDAP_BINDDN} \
+          -w ${LDAP_SECRET} \
+          -f ${ldif}
+    done
+}
+
+
+## Init
+
+
+slapd -h "ldapi:///" -u openldap -g openldap
+
+configure_msad_features
+configure_tls
+configure_logging
+configure_memberof_overlay
+configure_admin_config_pw
+load_initial_data
+if [ "$LDAP_FORCE_STARTTLS" == "true" ]; then
+    force_starttls
+fi
+
+# Shutdown openldap daemon
+kill -INT `cat /run/slapd/slapd.pid` && sleep 1

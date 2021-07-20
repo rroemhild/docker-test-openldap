@@ -1,11 +1,10 @@
-dn:: Y249QmVuZGVyIEJlbmRpbmcgUm9kcsOtZ3VleixvdT1wZW9wbGUsZGM9cGxhbmV0ZXhwcmV
- zcyxkYz1jb20=
+dn: cn=Bender Bending Rodriguez,ou=people,dc=planetexpress,dc=com
 objectClass: inetOrgPerson
 objectClass: organizationalPerson
 objectClass: person
 objectClass: top
-cn:: QmVuZGVyIEJlbmRpbmcgUm9kcsOtZ3Vleg==
-sn:: Um9kcsOtZ3Vleg==
+cn: cn=Bender Bending Rodriguez
+sn: Rodriguez
 description: Robot
 displayName: Bender
 employeeType: Ship's Robot

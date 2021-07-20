@@ -1,5 +1,16 @@
 FROM debian:buster-slim
-MAINTAINER Rafael Römhild <rafael@roemhild.de>
+
+# Configuration Env Variables with defaults
+ENV DATA_DIR="/opt/openldap/bootstrap/data"
+ENV CONFIG_DIR="/opt/openldap/bootstrap/config"
+ENV LDAP_DOMAIN=planetexpress.com
+ENV LDAP_ORGANISATION="Planet Express, Inc."
+ENV LDAP_BINDDN="cn=admin,dc=planetexpress,dc=com"
+ENV LDAP_SECRET=GoodNewsEveryone
+ENV LDAP_CA_CERT="/etc/ldap/ssl/fullchain.crt"
+ENV LDAP_SSL_KEY="/etc/ldap/ssl/ldap.key"
+ENV LDAP_SSL_CERT="/etc/ldap/ssl/ldap.crt"
+ENV LDAP_FORCE_STARTTLS="false"
 
 # Install slapd and requirements
 RUN apt-get update \
@@ -10,23 +21,20 @@ RUN apt-get update \
             ldap-utils \
             openssl \
             ca-certificates \
-            tini \
     && rm -rf /var/lib/apt/lists/* \
     && mkdir /etc/ldap/ssl /bootstrap
 
-# ADD bootstrap files
-ADD ./bootstrap /bootstrap
+# Add s6-overlay
+ADD https://github.com/just-containers/s6-overlay/releases/download/v2.2.0.1/s6-overlay-amd64-installer /tmp/
+RUN chmod +x /tmp/s6-overlay-amd64-installer && /tmp/s6-overlay-amd64-installer /
 
-# Initialize LDAP with data
-RUN /bin/bash /bootstrap/slapd-init.sh
+# ADD rootfs files
+ADD ./rootfs /
 
 VOLUME ["/etc/ldap/slapd.d", "/etc/ldap/ssl", "/var/lib/ldap", "/run/slapd"]
 
-EXPOSE 389 636
+EXPOSE 10389 10636
 
-USER openldap
+CMD ["/init"]
 
-ENTRYPOINT ["/usr/bin/tini", "--", "/usr/sbin/slapd"]
-CMD ["-h", "ldapi:/// ldap://0.0.0.0:10389 ldaps://0.0.0.0:10636", "-d", "256"]
-
-HEALTHCHECK CMD ldapsearch -H ldap://127.0.0.1:10389 -D cn=admin,dc=planetexpress,dc=com -w GoodNewsEveryone -b cn=admin,dc=planetexpress,dc=com
+HEALTHCHECK CMD ["ldapsearch", "-H", "ldap://127.0.0.1:10389", "-D", "${LDAP_BINDDN}", "-w", "${LDAP_SECRET}", "-b", "${LDAP_BINDDN}"]

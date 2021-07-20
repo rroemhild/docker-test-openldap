@@ -1,0 +1,4 @@
+#!/usr/bin/with-contenv bash
+set -eux
+
+chown -R openldap:openldap /etc/ldap

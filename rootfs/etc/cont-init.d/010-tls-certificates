@@ -1,0 +1,24 @@
+#!/usr/bin/with-contenv bash
+set -eux
+
+if [[ -f "$LDAP_SSL_KEY" ]]  && [[ -f "$LDAP_SSL_CERT" ]]; then
+    echo "TLS Certificates already present. Using provided certificates"
+
+    # TODO: validate the provided certs match domain
+
+else
+    echo "Make self-signed certificate for ${LDAP_DOMAIN}..."
+    openssl req -subj "/CN=${LDAP_DOMAIN}" \
+                -new \
+                -newkey rsa:2048 \
+                -days 365 \
+                -nodes \
+                -x509 \
+                -keyout ${LDAP_SSL_KEY} \
+                -out ${LDAP_SSL_CERT}
+
+    chmod 600 ${LDAP_SSL_KEY}
+fi
+
+
+
