@@ -27,7 +27,7 @@ The Flask extension [flask-ldapconn][flaskldapconn] use this image for unit test
 ## Usage
 
 ```
-docker pull ghcr.io/analogj/docker-openldap-starttls:master
+docker pull rroemhild/test-openldap
 docker run --rm -p 10389:10389 -p 10636:10636 ghcr.io/analogj/docker-openldap-starttls:master
 ```
 
