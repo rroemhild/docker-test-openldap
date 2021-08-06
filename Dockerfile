@@ -17,6 +17,8 @@ RUN apt-get update \
 # ADD bootstrap files
 ADD ./bootstrap /bootstrap
 
+ARG CERT_SAN
+
 # Initialize LDAP with data
 RUN /bin/bash /bootstrap/slapd-init.sh
 
