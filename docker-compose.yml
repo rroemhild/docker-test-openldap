@@ -5,7 +5,12 @@ services:
         container_name: ldap
         # use the image tag to pull directly from the repo
         # image: rroemhild/test-openldap
-
+        environment:
+            LDAP_FORCE_STARTTLS: "true"
+            LDAP_DOMAIN: "customdomain.com"
+            LDAP_BASEDN: "dc=customdomain,dc=com"
+            LDAP_ORGANISATION: "Custom Domain, Inc."
+            LDAP_BINDDN: "cn=admin,dc=customdomain,dc=com"
         # use build tag to use the local repo
         build:
             context: ./
@@ -13,8 +18,8 @@ services:
         ports:
             - '10389:10389'
             - '10636:10636'
-        volumes:
-            - data_volume:/var/lib/ldap/
-
-volumes:
-    data_volume:
+#        volumes:
+#            - data_volume:/var/lib/ldap/
+#
+#volumes:
+#    data_volume:
