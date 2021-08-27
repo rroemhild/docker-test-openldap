@@ -221,7 +221,7 @@ file you can use to connect.
 ```
 other {
   com.sun.security.auth.module.LdapLoginModule REQUIRED
-    userProvider="ldap://localhost/ou=people,dc=planetexpress,dc=com"
+    userProvider="ldap://localhost:10389/ou=people,dc=planetexpress,dc=com"
     userFilter="(&(uid={USERNAME})(objectClass=inetOrgPerson))"
     useSSL=false
     java.naming.security.principal="cn=admin,dc=planetexpress,dc=com"
