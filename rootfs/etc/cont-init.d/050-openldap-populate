@@ -1,6 +1,15 @@
 #!/usr/bin/with-contenv bash
 set -eux
 
+CONFIG_DIR=${CONFIG_DIR:-'/opt/openldap/bootstrap/config'}
+DATA_DIR=${DATA_DIR:-'/opt/openldap/bootstrap/data'}
+
+LDAP_BASEDN=${LDAP_BASEDN:-'dc=planetexpress,dc=com'}
+LDAP_BINDDN=${LDAP_BINDDN:-'cn=admin,dc=planetexpress,dc=com'}
+LDAP_SECRET=${LDAP_SECRET:-'GoodNewsEveryone'}
+LDAP_DOMAIN=${LDAP_DOMAIN:-'planetexpress.com'}
+LDAP_ORGANISATION=${LDAP_ORGANISATION:-'Planet Express, Inc.'}
+
 configure_tls() {
     echo "Configure TLS..."
     ldapmodify -Y EXTERNAL -H ldapi:/// -f ${CONFIG_DIR}/tls.ldif -Q
@@ -63,7 +72,7 @@ load_initial_data() {
 slapd -h "ldapi:///" -u openldap -g openldap
 
 configure_msad_features
-configure_tls
+# configure_tls
 configure_logging
 configure_memberof_overlay
 configure_admin_config_pw
