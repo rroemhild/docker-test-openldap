@@ -3,8 +3,11 @@ objectClass: top
 objectClass: person
 objectClass: organizationalPerson
 objectClass: inetOrgPerson
+objectClass: posixAccount
 cn: Hermes Conrad
 sn: Conrad
+uidNumber: 1051
+gidNumber: 2051
 description: Human
 employeeType: Bureaucrat
 employeeType: Accountant
