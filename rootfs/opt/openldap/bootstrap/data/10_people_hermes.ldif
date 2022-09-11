@@ -8,6 +8,7 @@ cn: Hermes Conrad
 sn: Conrad
 uidNumber: 1051
 gidNumber: 2051
+homeDirectory: /home/hermes
 description: Human
 employeeType: Bureaucrat
 employeeType: Accountant

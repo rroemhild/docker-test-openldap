@@ -8,6 +8,7 @@ cn: Philip J. Fry
 sn: Fry
 uidNumber: 1049
 gidNumber: 2049
+homeDirectory: /home/fry
 description: Human
 displayName: Fry
 employeeType: Delivery boy
