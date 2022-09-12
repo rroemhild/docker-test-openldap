@@ -107,7 +107,6 @@ LDAPTLS_REQCERT=never ldapsearch -H ldap://localhost:10389 -ZZ -x -b "ou=people,
 | ou               | Delivering Crew |
 | uid              | fry |
 | userPassword     | fry |
-| dn: cn=Hermes Conrad,ou=people,dc=planetexpress,dc=com
 | uidNumber	   | 1049 |
 | gidNumber        | 2049 |
 | homeDirectory:   | /home/fry |
@@ -147,7 +146,7 @@ LDAPTLS_REQCERT=never ldapsearch -H ldap://localhost:10389 -ZZ -x -b "ou=people,
 | userPassword     | hermes |
 | uidNumber        | 1051 |
 | gidNumber        | 2051 |
-| homeDirectory:   | /home/hermes |
+| homeDirectory    | /home/hermes |
 
 ### cn=Turanga Leela,ou=people,dc=planetexpress,dc=com
 
