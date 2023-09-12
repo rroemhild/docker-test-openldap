@@ -40,13 +40,17 @@ load_initial_data() {
     local data=$(find ${DATA_DIR} -maxdepth 1 -name \*_\*.ldif -type f | sort)
     for ldif in ${data}; do
         echo "Processing file ${ldif}..."
-        if  [ ! -z "$LDAP_BASEDN" ]; then
-            echo "updating base dn dc=planetexpress,dc=com -> ${LDAP_BASEDN}"
-            sed -i "s/dc=planetexpress,dc=com/${LDAP_BASEDN}/g" "${ldif}"
+
+        base_dn=${LDAP_BASEDN:-}
+        if  [ ! -z "${base_dn}" ]; then
+            echo "updating base dn dc=planetexpress,dc=com -> ${base_dn}"
+            sed -i "s/dc=planetexpress,dc=com/${base_dn}/g" "${ldif}"
         fi
-        if  [  "$LDAP_DOMAIN" != "planetexpress.com" ]; then
-            echo "updating emails @planetexpress.com -> @${LDAP_DOMAIN}"
-            sed -i "s/@planetexpress.com/@${LDAP_DOMAIN}/g" "${ldif}"
+
+        domain=${LDAP_DOMAIN:-}
+        if  [  "${domain}" != "planetexpress.com" ]; then
+            echo "updating emails @planetexpress.com -> @${domain}"
+            sed -i "s/@planetexpress.com/@${domain}/g" "${ldif}"
         fi
 
         ldapadd -x -H ldapi:/// \
