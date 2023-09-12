@@ -1,8 +1,5 @@
 dn: cn=config
 changetype: modify
-replace: olcTLSCACertificateFile
-olcTLSCACertificateFile: /etc/ldap/ssl/fullchain.crt
--
 replace: olcTLSCertificateFile
 olcTLSCertificateFile: /etc/ldap/ssl/ldap.crt
 -
