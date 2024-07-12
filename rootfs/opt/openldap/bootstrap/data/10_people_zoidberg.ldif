@@ -3,8 +3,12 @@ objectClass: top
 objectClass: person
 objectClass: organizationalPerson
 objectClass: inetOrgPerson
+objectClass: posixAccount
 cn: John A. Zoidberg
 sn: Zoidberg
+uidNumber: 2047
+gidNumber: 12047
+homeDirectory: /home/zoidberg
 description: Decapodian
 displayName: Zoidberg
 employeeType: Doctor

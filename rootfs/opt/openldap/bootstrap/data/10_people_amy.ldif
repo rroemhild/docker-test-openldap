@@ -3,6 +3,10 @@ objectClass: top
 objectClass: person
 objectClass: organizationalPerson
 objectClass: inetOrgPerson
+objectClass: posixAccount
+uidNumber: 2048
+gidNumber: 12048
+homeDirectory: /home/amy
 cn: Amy Wong
 sn: Kroker
 description: Human

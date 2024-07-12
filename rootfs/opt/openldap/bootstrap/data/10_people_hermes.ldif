@@ -6,8 +6,8 @@ objectClass: inetOrgPerson
 objectClass: posixAccount
 cn: Hermes Conrad
 sn: Conrad
-uidNumber: 1051
-gidNumber: 2051
+uidNumber: 2043
+gidNumber: 12043
 homeDirectory: /home/hermes
 description: Human
 employeeType: Bureaucrat

@@ -6,8 +6,8 @@ objectClass: top
 objectClass: posixAccount
 cn: Philip J. Fry
 sn: Fry
-uidNumber: 1049
-gidNumber: 2049
+uidNumber: 2042
+gidNumber: 12042
 homeDirectory: /home/fry
 description: Human
 displayName: Fry

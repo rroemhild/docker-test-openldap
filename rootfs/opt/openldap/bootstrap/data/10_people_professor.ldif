@@ -3,8 +3,12 @@ objectClass: inetOrgPerson
 objectClass: organizationalPerson
 objectClass: person
 objectClass: top
+objectClass: posixAccount
 cn: Hubert J. Farnsworth
 sn: Farnsworth
+uidNumber: 2045
+gidNumber: 12045
+homeDirectory: /home/professor
 description: Human
 displayName: Professor Farnsworth
 employeeType: Owner

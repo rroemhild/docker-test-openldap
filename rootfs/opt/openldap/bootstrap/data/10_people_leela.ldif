@@ -3,8 +3,12 @@ objectClass: inetOrgPerson
 objectClass: organizationalPerson
 objectClass: person
 objectClass: top
+objectClass: posixAccount
 cn: Turanga Leela
 sn: Turanga
+uidNumber: 2044
+gidNumber: 12044
+homeDirectory: /home/leela
 description: Mutant
 employeeType: Captain
 employeeType: Pilot
