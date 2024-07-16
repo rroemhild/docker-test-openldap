@@ -102,9 +102,6 @@ and attributs ```uidNumber, gidNumber, homeDirectory``` with dedicated values.
 | ---------------- | ---------------- |
 | objectClass      | inetOrgPerson |
 | objectClass      | posixAccount |
-| uidNumber        | 2042 |
-| gidNumber        | 12042 |
-| homeDirectory    | /home/fry |
 | cn               | Philip J. Fry |
 | sn               | Fry |
 | description      | Human |
@@ -116,8 +113,8 @@ and attributs ```uidNumber, gidNumber, homeDirectory``` with dedicated values.
 | ou               | Delivering Crew |
 | uid              | fry |
 | userPassword     | fry |
-| uidNumber	   | 1049 |
-| gidNumber        | 2049 |
+| uidNumber	       | 2042 |
+| gidNumber        | 12042 |
 | homeDirectory:   | /home/fry |
 
 ### cn=John A. Zoidberg,ou=people,dc=planetexpress,dc=com
