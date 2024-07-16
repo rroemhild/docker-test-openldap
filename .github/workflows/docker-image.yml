@@ -40,7 +40,7 @@ jobs:
          username: ${{ secrets.DOCKER_USERNAME }}
          password: ${{ secrets.DOCKER_TOKEN }}
 
-      - name: Build and push oc.nginx:${{ env.imagetag }}
+      - name: Build and push docker-test-openldap:${{ env.imagetag }}
         uses: docker/build-push-action@v6
         with:
           file: Dockerfile
