@@ -64,8 +64,20 @@ LDAPTLS_REQCERT=never ldapsearch -H ldap://localhost:10389 -ZZ -x -b "ou=people,
 
 ### changes for abcdesktop.io
 
-abcdesktop.io adds the poxicAccount support. To do that, we add for each user ```objectClass: posixAccount```
-and attributs ```uidNumber, gidNumber, homeDirectory``` with dedicated values.
+abcdesktop.io adds the poxicAccount support. To do that, we add for each user 
+
+```
+objectClass: posixAccount
+```
+
+and attributs 
+
+```
+uidNumber
+gidNumber
+homeDirectory
+```
+with dedicated values.
 
 ### dc=planetexpress,dc=com
 
