@@ -1,8 +1,6 @@
 # OpenLDAP Docker Image for testing
 
-![Docker Build Status](https://img.shields.io/docker/cloud/build/rroemhild/test-openldap) [![Docker Stars](https://img.shields.io/docker/stars/rroemhild/test-openldap.svg)](https://hub.docker.com/r/rroemhild/test-openldap) [![Docker Pulls](https://img.shields.io/docker/pulls/rroemhild/test-openldap.svg)](https://hub.docker.com/r/rroemhild/test-openldap)
-
-[This image](https://hub.docker.com/r/rroemhild/test-openldap) provides an OpenLDAP Server for testing LDAP applications, i.e. unit tests. The server is initialized with the example domain `planetexpress.com` with data from the [Futurama Wiki][futuramawikia].
+This Docker image provides an OpenLDAP Server for testing LDAP applications, i.e. unit tests. The server is initialized with the example domain `planetexpress.com` with data from the [Futurama Wiki][futuramawikia].
 
 Parts of the image are based on the work from Nick Stenning [docker-slapd][slapd] and Bertrand Gouny [docker-openldap][openldap].
 
@@ -27,8 +25,8 @@ The Flask extension [flask-ldapconn][flaskldapconn] use this image for unit test
 ## Usage
 
 ```
-docker pull rroemhild/test-openldap
-docker run --rm -p 10389:10389 -p 10636:10636 rroemhild/test-openldap
+docker pull ghcr.io/rroemhild/docker-test-openldap:master
+docker run --rm -p 10389:10389 -p 10636:10636 ghcr.io/rroemhild/docker-test-openldap:master
 ```
 
 ## Testing
