@@ -1,3 +1,5 @@
+[![Docker Image CI](https://github.com/abcdesktopio/docker-test-openldap/actions/workflows/docker-image.yml/badge.svg)](https://github.com/abcdesktopio/docker-test-openldap/actions/workflows/docker-image.yml)
+
 # OpenLDAP Docker Image for testing
 
 This Docker image provides an OpenLDAP Server for testing LDAP applications, i.e. unit tests. The server is initialized with the example domain `planetexpress.com` with data from the [Futurama Wiki][futuramawikia].
