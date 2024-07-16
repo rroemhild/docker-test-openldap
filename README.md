@@ -80,6 +80,7 @@ and attributs ```uidNumber, gidNumber, homeDirectory``` with dedicated values.
 | Attribute        | Value            |
 | ---------------- | ---------------- |
 | objectClass      | inetOrgPerson |
+| objectClass      | posixAccount |
 | cn               | Hubert J. Farnsworth |
 | sn               | Farnsworth |
 | description      | Human |
@@ -94,6 +95,9 @@ and attributs ```uidNumber, gidNumber, homeDirectory``` with dedicated values.
 | title            | Professor |
 | uid              | professor |
 | userPassword     | professor |
+| uidNumber	       | 2045 |
+| gidNumber        | 12045 |
+| homeDirectory:   | /home/professor |
 
 
 ### cn=Philip J. Fry,ou=people,dc=planetexpress,dc=com
@@ -122,6 +126,7 @@ and attributs ```uidNumber, gidNumber, homeDirectory``` with dedicated values.
 | Attribute        | Value            |
 | ---------------- | ---------------- |
 | objectClass      | inetOrgPerson |
+| objectClass      | posixAccount |
 | cn               | John A. Zoidberg |
 | sn               | Zoidberg |
 | description      | Decapodian |
@@ -134,12 +139,16 @@ and attributs ```uidNumber, gidNumber, homeDirectory``` with dedicated values.
 | title            | Ph. D. |
 | uid              | zoidberg |
 | userPassword     | zoidberg |
+| uidNumber	       | 2047 |
+| gidNumber        | 12047 |
+| homeDirectory:   | /home/zoidberg |
 
 ### cn=Hermes Conrad,ou=people,dc=planetexpress,dc=com
 
 | Attribute        | Value            |
 | ---------------- | ---------------- |
 | objectClass      | inetOrgPerson |
+| objectClass      | posixAccount |
 | cn               | Hermes Conrad |
 | sn               | Conrad |
 | description      | Human |
@@ -150,8 +159,8 @@ and attributs ```uidNumber, gidNumber, homeDirectory``` with dedicated values.
 | ou               | Office Management |
 | uid              | hermes |
 | userPassword     | hermes |
-| uidNumber        | 1051 |
-| gidNumber        | 2051 |
+| uidNumber        | 2043 |
+| gidNumber        | 12043 |
 | homeDirectory    | /home/hermes |
 
 ### cn=Turanga Leela,ou=people,dc=planetexpress,dc=com
@@ -159,6 +168,7 @@ and attributs ```uidNumber, gidNumber, homeDirectory``` with dedicated values.
 | Attribute        | Value            |
 | ---------------- | ---------------- |
 | objectClass      | inetOrgPerson |
+| objectClass      | posixAccount |
 | cn               | Turanga Leela |
 | sn               | Turanga |
 | description      | Mutant |
@@ -170,12 +180,16 @@ and attributs ```uidNumber, gidNumber, homeDirectory``` with dedicated values.
 | ou               | Delivering Crew |
 | uid              | leela |
 | userPassword     | leela |
+| uidNumber        | 2044 |
+| gidNumber        | 12044 |
+| homeDirectory    | /home/leela |
 
 ### cn=Bender Bending Rodríguez,ou=people,dc=planetexpress,dc=com
 
 | Attribute        | Value            |
 | ---------------- | ---------------- |
 | objectClass      | inetOrgPerson |
+| objectClass      | posixAccount |
 | cn               | Bender Bending Rodríguez |
 | sn               | Rodríguez |
 | description      | Robot |
@@ -186,6 +200,9 @@ and attributs ```uidNumber, gidNumber, homeDirectory``` with dedicated values.
 | ou               | Delivering Crew |
 | uid              | bender |
 | userPassword     | bender |
+| uidNumber        | 2046 |
+| gidNumber        | 12046 |
+| homeDirectory    | /home/bender |
 
 ### cn=Amy Wong+sn=Kroker,ou=people,dc=planetexpress,dc=com
 
@@ -194,6 +211,7 @@ Amy has a multi-valued DN
 | Attribute        | Value            |
 | ---------------- | ---------------- |
 | objectClass      | inetOrgPerson |
+| objectClass      | posixAccount |
 | cn               | Amy Wong |
 | sn               | Kroker |
 | description      | Human |
@@ -202,6 +220,9 @@ Amy has a multi-valued DN
 | ou               | Intern |
 | uid              | amy |
 | userPassword     | amy |
+| uidNumber        | 2048 |
+| gidNumber        | 12048 |
+| homeDirectory    | /home/amy |
 
 ### cn=admin_staff,ou=people,dc=planetexpress,dc=com
 
