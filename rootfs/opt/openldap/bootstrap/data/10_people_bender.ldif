@@ -3,7 +3,7 @@ objectClass: inetOrgPerson
 objectClass: organizationalPerson
 objectClass: person
 objectClass: top
-cn: cn=Bender Bending Rodriguez
+cn: Bender Bending Rodriguez
 sn: Rodriguez
 description: Robot
 displayName: Bender
