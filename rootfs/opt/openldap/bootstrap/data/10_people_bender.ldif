@@ -4,7 +4,7 @@ objectClass: organizationalPerson
 objectClass: person
 objectClass: top
 objectClass: posixAccount
-cn: cn=Bender Bending Rodriguez
+cn: Bender Bending Rodriguez
 sn: Rodriguez
 uidNumber: 2046
 gidNumber: 12046
