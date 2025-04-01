@@ -37,4 +37,9 @@ EXPOSE 10389 10636
 
 CMD ["/init"]
 
-HEALTHCHECK CMD ["ldapsearch", "-H", "ldap://127.0.0.1:10389", "-D", "${LDAP_BINDDN}", "-w", "${LDAP_SECRET}", "-b", "${LDAP_BINDDN}"]
+# Add a healthcheck script
+RUN echo '#!/bin/sh' > /healthcheck.sh && \
+    echo 'ldapsearch -H ldap://127.0.0.1:10389 -D "${LDAP_BINDDN}" -w "${LDAP_SECRET}" -b "${LDAP_BINDDN}" >/dev/null 2>&1 || exit 1' >> /healthcheck.sh && \
+    chmod +x /healthcheck.sh
+
+HEALTHCHECK CMD /healthcheck.sh
