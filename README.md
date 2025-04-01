@@ -205,7 +205,6 @@ Amy has a multi-valued DN
 | ---------------- | ---------------- |
 | objectClass      | Group |
 | cn               | ship_crew |
-| mail             | ship_crew@planetexpress.com |
 | member           | cn=Turanga Leela,ou=people,dc=planetexpress,dc=com |
 | member           | cn=Philip J. Fry,ou=people,dc=planetexpress,dc=com |
 | member           | cn=Bender Bending Rodriguez,ou=people,dc=planetexpress,dc=com |
