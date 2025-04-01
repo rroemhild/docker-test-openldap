@@ -158,13 +158,13 @@ LDAPTLS_REQCERT=never ldapsearch -H ldap://localhost:10389 -ZZ -x -b "ou=people,
 | uid              | leela |
 | userPassword     | leela |
 
-### cn=Bender Bending Rodríguez,ou=people,dc=planetexpress,dc=com
+### cn=Bender Bending Rodriguez,ou=people,dc=planetexpress,dc=com
 
 | Attribute        | Value            |
 | ---------------- | ---------------- |
 | objectClass      | inetOrgPerson |
-| cn               | Bender Bending Rodríguez |
-| sn               | Rodríguez |
+| cn               | Bender Bending Rodriguez |
+| sn               | Rodriguez |
 | description      | Robot |
 | employeeType     | Ship's Robot |
 | givenName        | Bender |
@@ -208,7 +208,7 @@ Amy has a multi-valued DN
 | mail             | ship_crew@planetexpress.com |
 | member           | cn=Turanga Leela,ou=people,dc=planetexpress,dc=com |
 | member           | cn=Philip J. Fry,ou=people,dc=planetexpress,dc=com |
-| member           | cn=Bender Bending Rodríguez,ou=people,dc=planetexpress,dc=com |
+| member           | cn=Bender Bending Rodriguez,ou=people,dc=planetexpress,dc=com |
 
 
 ## JAAS configuration
