@@ -1,4 +1,4 @@
-FROM debian:buster-slim
+FROM debian:trixie-slim
 
 # Configuration Env Variables with defaults
 ENV DATA_DIR="/opt/openldap/bootstrap/data"
@@ -22,7 +22,8 @@ RUN apt-get update \
             openssl \
             ca-certificates \
     && rm -rf /var/lib/apt/lists/* \
-    && mkdir /etc/ldap/ssl /bootstrap
+    && mkdir /etc/ldap/ssl /bootstrap \
+    && apt autoremove -y
 
 # Add s6-overlay
 ADD https://github.com/just-containers/s6-overlay/releases/download/v2.2.0.1/s6-overlay-amd64-installer /tmp/
