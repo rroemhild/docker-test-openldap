@@ -1,7 +1,0 @@
-dn: cn=admin_staff,ou=people,dc=planetexpress,dc=com
-objectclass: Group
-objectclass: top
-groupType: 2147483650
-cn: admin_staff
-member: cn=Hubert J. Farnsworth,ou=people,dc=planetexpress,dc=com
-member: cn=Hermes Conrad,ou=people,dc=planetexpress,dc=com

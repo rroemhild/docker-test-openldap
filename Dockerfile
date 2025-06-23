@@ -1,41 +1,23 @@
-FROM debian:buster-slim
+FROM alpine:latest
 
-# Configuration Env Variables with defaults
-ENV DATA_DIR="/opt/openldap/bootstrap/data"
-ENV CONFIG_DIR="/opt/openldap/bootstrap/config"
-ENV LDAP_DOMAIN=planetexpress.com
-ENV LDAP_ORGANISATION="Planet Express, Inc."
-ENV LDAP_BINDDN="cn=admin,dc=planetexpress,dc=com"
-ENV LDAP_SECRET=GoodNewsEveryone
-ENV LDAP_CA_CERT="/etc/ldap/ssl/fullchain.crt"
-ENV LDAP_SSL_KEY="/etc/ldap/ssl/ldap.key"
-ENV LDAP_SSL_CERT="/etc/ldap/ssl/ldap.crt"
-ENV LDAP_FORCE_STARTTLS="false"
 
-# Install slapd and requirements
-RUN apt-get update \
-	&& apt-get dist-upgrade -y \
-    && DEBIAN_FRONTEND=noninteractive apt-get \
-        install -y --no-install-recommends \
-            slapd \
-            ldap-utils \
-            openssl \
-            ca-certificates \
-    && rm -rf /var/lib/apt/lists/* \
-    && mkdir /etc/ldap/ssl /bootstrap \
-    && apt autoremove -y
+ENV ORGANISATION_NAME="Planet Express, Inc."
+ENV SUFFIX="dc=planetexpress,dc=com"
+ENV ROOT_USER="admin"
+ENV ROOT_PW="GoodNewsEveryone"
 
-# Add s6-overlay
-ADD https://github.com/just-containers/s6-overlay/releases/download/v2.2.0.1/s6-overlay-amd64-installer /tmp/
-RUN chmod +x /tmp/s6-overlay-amd64-installer && /tmp/s6-overlay-amd64-installer /
+ENV LOG_LEVEL="stats"
 
-# ADD rootfs files
-ADD ./rootfs /
+RUN apk add gettext openldap openldap-clients openldap-back-mdb openldap-passwd-pbkdf2 openldap-overlay-memberof openldap-overlay-ppolicy openldap-overlay-refint && \
+    mkdir -p /run/openldap /var/lib/openldap/openldap-data && \
+    rm -rf /var/cache/apk/*
 
-VOLUME ["/etc/ldap/slapd.d", "/etc/ldap/ssl", "/var/lib/ldap", "/run/slapd"]
+COPY scripts/* /etc/openldap/
+COPY ldif /ldif
 
-EXPOSE 10389 10636
+COPY docker-entrypoint.sh /
 
-CMD ["/init"]
+EXPOSE 389
+EXPOSE 636
 
-HEALTHCHECK CMD ["ldapsearch", "-H", "ldap://127.0.0.1:10389", "-D", "${LDAP_BINDDN}", "-w", "${LDAP_SECRET}", "-b", "${LDAP_BINDDN}"]
+ENTRYPOINT ["/docker-entrypoint.sh"]

@@ -1,0 +1,7 @@
+dn: cn=admin_staff,ou=people,dc=planetexpress,dc=com
+objectClass: posixGroup
+objectclass: top
+gidNumber: 2147483650
+cn: admin_staff
+memberUid: hfarnsworth
+memberUid: hconrad

@@ -1,0 +1,9 @@
+dn: cn=ship_crew,ou=people,dc=planetexpress,dc=com
+objectClass: posixGroup
+objectclass: top
+gidNumber: 2147483650
+cn: ship_crew
+memberUid: fry
+memberUid: bender
+memberUid: leela
+
