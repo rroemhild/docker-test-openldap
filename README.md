@@ -28,29 +28,29 @@ The Flask extension [flask-ldapconn][flaskldapconn] use this image for unit test
 
 ```
 docker pull ghcr.io/rroemhild/docker-test-openldap:master
-docker run --rm -p 10389:10389 -p 10636:10636 ghcr.io/rroemhild/docker-test-openldap:master
+docker run --rm -p 389:389 -p 636:636 ghcr.io/rroemhild/docker-test-openldap:master
 ```
 
 ## Testing
 
 ```
 # List all Users
-ldapsearch -H ldap://localhost:10389 -x -b "ou=people,dc=planetexpress,dc=com" -D "cn=admin,dc=planetexpress,dc=com" -w GoodNewsEveryone "(objectClass=inetOrgPerson)"
+ldapsearch -H ldap://localhost:389 -x -b "ou=people,dc=planetexpress,dc=com" -D "cn=admin,dc=planetexpress,dc=com" -w GoodNewsEveryone "(objectClass=inetOrgPerson)"
 
 # Request StartTLS
-ldapsearch -H ldap://localhost:10389 -Z -x -b "ou=people,dc=planetexpress,dc=com" -D "cn=admin,dc=planetexpress,dc=com" -w GoodNewsEveryone "(objectClass=inetOrgPerson)"
+ldapsearch -H ldap://localhost:389 -Z -x -b "ou=people,dc=planetexpress,dc=com" -D "cn=admin,dc=planetexpress,dc=com" -w GoodNewsEveryone "(objectClass=inetOrgPerson)"
 
 # Enforce StartTLS
-ldapsearch -H ldap://localhost:10389 -ZZ -x -b "ou=people,dc=planetexpress,dc=com" -D "cn=admin,dc=planetexpress,dc=com" -w GoodNewsEveryone "(objectClass=inetOrgPerson)"
+ldapsearch -H ldap://localhost:389 -ZZ -x -b "ou=people,dc=planetexpress,dc=com" -D "cn=admin,dc=planetexpress,dc=com" -w GoodNewsEveryone "(objectClass=inetOrgPerson)"
 
 # Enforce StartTLS with self-signed cert
-LDAPTLS_REQCERT=never ldapsearch -H ldap://localhost:10389 -ZZ -x -b "ou=people,dc=planetexpress,dc=com" -D "cn=admin,dc=planetexpress,dc=com" -w GoodNewsEveryone "(objectClass=inetOrgPerson)"
+LDAPTLS_REQCERT=never ldapsearch -H ldap://localhost:389 -ZZ -x -b "ou=people,dc=planetexpress,dc=com" -D "cn=admin,dc=planetexpress,dc=com" -w GoodNewsEveryone "(objectClass=inetOrgPerson)"
 ```
 
 ## Exposed ports
 
-* 10389 (ldap)
-* 10636 (ldaps)
+* 389 (ldap)
+* 636 (ldaps)
 
 ## Exposed volumes
 
@@ -265,7 +265,7 @@ file you can use to connect.
 ```
 other {
   com.sun.security.auth.module.LdapLoginModule REQUIRED
-    userProvider="ldap://localhost:10389/ou=people,dc=planetexpress,dc=com"
+    userProvider="ldap://localhost:389/ou=people,dc=planetexpress,dc=com"
     userFilter="(&(uid={USERNAME})(objectClass=inetOrgPerson))"
     useSSL=false
     java.naming.security.principal="cn=admin,dc=planetexpress,dc=com"
