@@ -1,4 +1,4 @@
-FROM debian:buster-slim
+FROM debian:bookworm-slim
 
 # Configuration Env Variables with defaults
 ENV DATA_DIR="/opt/openldap/bootstrap/data"
